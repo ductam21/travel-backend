@@ -14,7 +14,9 @@ const userRouter = require('./src/routers/userRouter');
 const authRouter = require('./src/routers/authRouter');
 const orderRouter = require('./src/routers/orderRouter');
 const sheduleRouter = require('./src/routers/scheduleRouter');
-const customerRouter = require('./src/routers/customerRouter'); 
+const customerRouter = require('./src/routers/customerRouter');
+const uploadRouter = require('./src/routers/uploadRouter');
+
 mongoose
 	.connect(process.env.MONGO_URL)
 	.then(() => console.log('db is connected !'))
@@ -36,6 +38,7 @@ app.use(orderRouter);
 app.use(authRouter);
 app.use(categoryRouter);
 app.use(sheduleRouter)
-app.use(customerRouter); 
+app.use(customerRouter);
+app.use(uploadRouter);
 
 app.listen(PORT, () => console.log(`server is runing at http://localhost:${PORT}`));
